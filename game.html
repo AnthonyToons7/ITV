@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge mode</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="assets/tutorial.js"></script>
+    <script src="assets/general.js"></script>
+    <script src="assets/easy.js"></script>
+    <script src="assets/hard.js"></script>
+    <script src="assets/impossible.js"></script>
+</head>
+<body onload="load()">
+    <div id="phone__tilt"><h1>TILT PHONE!!!</h1></div>
+    <p style="color: #fff; position: fixed;">ver. 1.4.5 updating...</p>
+    <div class="outer-border">
+        <div class="inner-border">
+            <div class="main__Container">
+                <div class="patch__notes">
+                    <button class="patch__cross">Close</button>
+                    <div class="c">
+                        <input type="checkbox" id="faq-8">
+                        <h1><label for="faq-8">Update 1.4.5</label></h1>
+                        <div class="p">
+                          <p>
+                            <br>Released: 22-7-2022
+                            <br>Patch notes 1.4.5
+                            <br>Mana spell price increased from 30 --> 40
+                            <br>Mana spell mana amount given increased from 35 ~ 40 to 50 ~ 70
+                            <br>Bleed proc rate decreased from 8 --> 5%
+                          </p>
+                        </div>
+                    </div>
+                    <div class="c">
+                        <input type="checkbox" id="faq-7">
+                        <h1><label for="faq-7">Update 1.4.4</label></h1>
+                        <div class="p">
+                          <p>
+                            <br>Released: 21-7-2022
+                            <br>Patch notes 1.4.4
+                            <br>
+                            <br>Quick Balance changes:
+                            <br>
+                            <br>SP potion SP gained increased from 50 --> 60
+                            <br>Lucky charm amount reduced from 3 --> 2
+                            <br>
+                            <br>Heal spell punish damage reduced from 100 --> 45
+                            <br>Heal spell proc rate increased from 60 --> 75%
+                            <br>Mana spell mana gained decreased from 50 ~ 80 --> 35 ~ 40
+                            <br>Overclock spell damage increased from 500 --> 700
+                            <br>Overclock spell proc rate increased from 10 --> 15%
+                            <br>Item spell downside removed
+                            <br>Item spells can now give lucky charms and sp potions
+                            <br>
+                            <br>Bloodshot bleed damage increased from 20 --> 25
+                            <br>
+                            <br>Player health increased from 1000 ~ 2500 to 1500 ~ 2750
+                            <br>Starting SP reduced from 127 --> 110
+                            <br>Starting mana reduced from 20 --> 10
+                          </p>
+                        </div>
+                    </div>
+                    <div class="c">
+                        <input type="checkbox" id="faq-6">
+                        <h1><label for="faq-6">Update 1.4.3</label></h1>
+                        <div class="p">
+                            <p>
+                                <br>Patch notes 1.4.3
+                                <br>Released: 20-7-2022
+                                <br>
+                                <br>Notes:
+                                <br>The reason why I don't work on hard and easy as much is because I never intended to have a variety of difficulties.
+                                <br>RPG's don't even have a difficulty selection, and I wanted to go with that as well. See easy and hard mode as some sort of tutorial.
+                                <br>Something that will introduce you what the game is. From here on out, Easy mode and hard mode will NOT recieve any updates.
+                                <br>
+                                <br>Big updates:
+                                <br>
+                                <br>Patch note section in the menu!
+                                <br>Better design!
+                                <br>New player sprite!
+                                <br>New mechanic! Special attacks! 
+                                <br>This will be an extra attack option for you to use!
+                                <br>Added Special Points potions
+                                <br>-------------------------------------------------------------------------------
+                                <br>First special attacks being:
+                                <br>Crash buster 
+                                <br>Cost: 50 sp
+                                <br>(high damage, no downside, small chance to crit)
+                                <br>
+                                <br>Bloodshot
+                                <br>Cost: 40 sp
+                                <br>(decent damage, applies bleeding to opponent for 2 turns)
+                                <br>-------------------------------------------------------------------------------
+                                <br>Added anti crit shield (prevents you from getting crit for 2 turns)
+                                <br>Added lucky charm (anti status effects)
+                                <br>Added Stun (locks you for 1 turn)
+                                <br>Added Paralyse (locks you from attacking for 2 turns)
+                                <br>Opponent can now heal
+                                <br>
+                                <br>Added downsides to  if the effect doesn't succeed
+                                <br>Healing: Heal 100 / instant dmg 
+                                <br>Heavy damage spell: Deal 300 dmg to opp / you recieve 100 dmg. 
+                                <br>
+                                <br>Previously, nothing would happen if the spell did not succeed. Now with these added downsides, you might want to reconsider using something else.
+                                <br>
+                                <br>Added the Item spell, Mana spell
+                                <br>-------------------------------------------------------------------------------
+                                <br>Quality of life changes:
+                                <br>-Removed the tutorial (until it's remade) 
+                                <br>-------------------------------------------------------------------------------
+                                <br>Balance changes:
+                                <br>
+                                <br>Health potion amt 2 --> 3 
+                                <br>Health potions heal amount reduced from 70 ~ 100 --> 70 ~ 85
+                                <br>Heal spell heal amount increased from 100 --> 150
+                                <br>
+                                <br>Heal spell gets outclassed by the health potion, it having no downside and not having that time where you save up mana. Hopefully these changes will make both more equal.
+                                <br>
+                                <br>Damage spell chance increased from 30 --> 35%
+                                <br>Damage spell cost reduced from 70 --> 60
+                                <br>Damage spell damage reduced from 300 --> 225
+                                <br>
+                                <br>Damage spell proc rate has been hit a little too hard last update, so I've made it slightly more consistent and a reduced price to make up for it.
+                                <br>
+                                <br>Thank you for playing my game, feel free to report any bugs or issues to me.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="c">
+                        <input type="checkbox" id="faq-5">
+                        <h1><label for="faq-5">Update 1.3.3</label></h1>
+                        <div class="p">
+                          <p>
+                            First of all! The game now has a new link!
+                            <br><a href="https://anthonyschuurmans.nl/1Mastery_Test_RPG_port_ver/game.html">https://anthonyschuurmans.nl/1Mastery_Test_RPG_port_ver/game.html</a>
+                            <br>If you want to play, use that link! (report to me if it does not work) ^
+                            <br>
+                            <br>Patch notes 1.3.3:
+                            <br>Big updates:
+                            <br>Now introducing another new mechanic! 
+                            <br>Spellbook(s)! Full credit to @mandaboonana [instagram] for this amazing idea.
+                            <br>Spellbooks posess powerful effects that help you in combat, but are you able to master the good side?
+                            <br>Every turn, a bit of mana recharges, the more mana you have, the more effects you can try!
+                            <br>Spellbook does take up your turn, use it wisely.
+                            <br>Added the status effect Bleeding (bleeding drains health every turn until it's fixed)
+                            <br>Mana spells:
+                            <br>
+                            <br>Healing - Heal spell:
+                            <br>Cost: 45 mana, heal 100
+                            <br>
+                            <br>Damaging - Heavy damage spell:
+                            <br>Cost: 50 mana, deal 300 dmg to opp
+                            <br>----------------------------------------------------------------------------------------
+                            <br>Quality of life changes:
+                            <br>-Fixed a bug where the item menu appears when loading in the page on mobile. 
+                            <br>-Fixed a bug where increasing your damage wouldn't damage the opponent.
+                            <br>-Fixed a bug where healing increases damage
+                            <br>-Decreased the amount of JS by a lot 
+                            <br>-Removed the big amounts of text such as "Opponent attacks!" because it took up too much space on the screen and really made the dev tools look messy with all the positioning and such. 
+                            <br>-Removed the "Hp:???" for the opponent, as it's pretty clear that you don't know. 
+                            <br>-Now added a player sprite
+                            <br>-Battle stats has been completely reworked, now also having a seperate section for your hp and resources in battle! 
+                            <br>----------------------------------------------------------------------------------------
+                            <br>Balance changes:
+                            <br>Impossible mode:
+                            <br>Huge change in health because of the spellbook system. Building up mana takes a very long time so i buffed both players up by a lot to compensate.
+                            <br>Opponent health increased from 300 to 3500. 
+                            <br>Player health increased from 1 ~ 200 to 1000 ~ 2500 
+                            <br>Health potion random healing increased from 20 ~ 50 to 70 ~ 100. 
+                            <br>Dmg potion random damage increased from 70 ~ 130 to 80 ~ 150. 
+                          </p>
+                        </div>
+                    </div>
+                    <div class="c">
+                        <input type="checkbox" id="faq-4">
+                        <h1><label for="faq-4">Update 1.2.3</label></h1>
+                        <div class="p">
+                          <p>
+                            <br>Now introducing items! Currently containing only two items, that being a simple heal potion and damage boost potion. 
+                            <br>A heal potion will heal somewhere between 30 ~ 50 HP.
+                            <br>This will only appear in impossible mode, as it is able to tank an entire hit in any other gamemode.
+                            <br>----------------------------------------------------------------------------------------
+                            <br>Balance changes:
+                            <br>Easy mode:
+                            <br>Bot HP increased from 20 to 30
+                            <br>Player HP incresed from 20 to 30
+                            <br>
+                            <br>Hard mode:
+                            <br>Bot hp reduced from 140 to 125
+                            <br>Bot max damage increased from 5 ~ 15 to 5 ~ 20
+                            <br>Player min damage increased from 5 ~ 20 to 10 ~ 20
+                            <br>
+                            <br>Impossible mode:
+                            <br>Bot crit chance reduced from 30% to 20%
+                            <br>----------------------------------------------------------------------------------------
+                            <br>Also changed the look of the buttons, and added the potion section to the tutorial menu
+                            <br>Have fun, and stay tuned for any further updates! I'm always open for suggestions!
+                          </p>
+                        </div>
+                    </div>
+                    <div class="c">
+                        <input type="checkbox" id="faq-3">
+                        <h1><label for="faq-3">Update 1.1.2</label></h1>
+                        <div class="p">
+                          <p>
+                            <br>Balance changes:
+                            <br>Hard mode:
+                            <br>Bot HP reduced from 150 to 140
+                            <br>Bot DMG reduced from 5 ~ 20 to 5 ~ 15
+                            <br>Player damage increased from 0 ~ 15 to 5 ~ 20
+                          </p>
+                        </div>
+                    </div>
+                    <div class="c">
+                        <input type="checkbox" id="faq-2">
+                        <h1><label for="faq-2">Update 1.1.1</label></h1>
+                        <div class="p">
+                          <p>Added sound effect for crits</p>
+                        </div>
+                    </div>
+                    <div class="c">
+                        <input type="checkbox" id="faq-1">
+                        <h1><label for="faq-1">Update 1.1.0</label></h1>
+                        <div class="p">
+                          <p>
+                            <br>2 new gamemodes, now including Hard and Impossible! Are you the true king/queen of RNG and be able to beat my bot? Let me know if you can ;3
+                            <br>
+                            <br>Short expl. of the difficulties
+                            <br>Easy: Not much to say here. You have 20 hp, bot has 20 hp
+                            <br>Hard: Higher stats, and the bot can now preform critical attacks, which is a 10% chance
+                            <br>Impossible: Yeah
+                            <br>
+                            <br>Also resolved some bug fixes
+                          </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gamemode">
+                    <h1>Difficulty options</h1><br>
+                    <button class="easy" onclick="playEs()">Easy</button>
+                    <button class="hard" onclick="playHrd()">Hard</button>
+                    <button class="imp" onclick="playImp()">Challenge</button>
+                </div>
+                <div class="eyes__Container"></div>
+                <div class="left">
+                    <!-- easy -->
+                    <div class="flexbox__Left">
+                        <div class="dmg__Container">
+                            <img alt="" src="img/effects/damage.png" alt="explosion.png">
+                            <div class="opp__dmg"></div><br>
+                        </div>
+                        <img src="img/sprites/Void.gif" alt="" class="sprite1 yspriteEs">
+                        <div class="your__health__Container">
+                            <img alt="" src="img/health.png" alt="health.png">
+                            <div class="your__hp" data-yhp="30"></div>
+                        </div>
+                    </div>
+                    <!-- hard -->
+                    <div class="flexbox__Left__hard">
+                        <audio controls class="critsfx" style="display: none;">
+                            <source src="img/sprites/critical_hit_sfx.mp3" type="audio/mpeg">
+                        </audio> 
+                        <div class="your__dmg__Container__hard">
+                            <div class="crit"><h1 style="color: #7b0000;">Critical hit!!</h1></div>
+                            <img alt="" src="img/effects/damage.png" alt="explosion.png">
+                            <div class="dmgH"></div><br>
+                        </div>
+                        <img alt="" src="img/sprites/Void.gif" class="sprite1 yspriteHrd">
+                        <div class="your__health__Container__hard">
+                            <img alt="" src="img/health.png" alt="health.png">
+                            <div class="your__hp__hard" data-yhph="100"></div>
+                        </div>
+                    </div>
+                    <!-- impossible -->
+                    <div class="flexbox__Left__impossible">                        
+                        <audio controls class="critsfx" style="display: none;">
+                            <source src="img/sprites/critical_hit_sfx.mp3" type="audio/mpeg">
+                        </audio> 
+                        <div class="dmg__Container__opp__impossible">
+                            <div class="crit2"><h1 style="color: #7b0000;">Critical hit!! &nbsp;&nbsp;</h1></div>
+                                <img alt="" src="img/effects/damage.png" alt="explosion.png">
+                            <div style="display: flex; flex-wrap:wrap; flex-direction: column;">
+                                <div class="dmgI"></div>
+                            </div>
+                        </div>
+                        <img alt="" src="img/effects/heal.gif" class="healeff">
+                        <img alt="" src="img/sprites/Void.gif" class="sprite1 yspriteImp">
+                        <div class="stats">
+                            <div class="healthContainerI">
+                                <img alt="" src="img/health.png" alt="health.png">
+                                <div class="yhpI" data-yhpi="100"></div>
+                            </div>
+                            <div class="healAmt"></div>
+                            <div class="healSpellAmt"></div>
+                            <div class="sacrificeAmt"></div>
+                            <div class="punishdmg"></div>
+                            <div class="manaContainerI">
+                                <img alt="" src="img/Mana.png" alt="mana.png">
+                                <div class="yManaI" data-ymanai="25"></div>
+                            </div>
+                            <div class="manaAmt"></div>
+                            <div class="special__points__container">
+                                <img alt="" src="img/Specialpoints.png" alt="sp.png">
+                                <div class="ySPI" data-yspi="120"></div>
+                            </div>
+                            <div class="spgain"></div>
+                            <img alt="" src="img/effects/atkboost.gif" class="dmgeff">
+                            <img alt="" src="img/effects/Shield.gif" class="shieldeff">
+                            <img alt="" src="img/effects/shockeff.gif" class="shockeff">
+                            <img alt="" src="img/effects/stuneff.gif" class="stuneff">
+                            <div id="flexbleed">
+                                <img alt="" src="img/effects/bleedingeff.gif" alt="bleeding.gif" class="bleed__gif">
+                                <div class="bleedcont"></div>
+                            </div>
+                            <div id="flexpoison">
+                                <img alt="" src="img/effects/Poisoneff.gif" class="poisoneff">
+                                <div class="poisoncont"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!-- item menu -->
+                <div class="item__Menu__Impossible">
+                    <h1 style="display: none;" id="inven">Inventory</h1><br>
+                    <img alt="" src="img/xcross.png" alt="x.png" class="itemx">
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Health potion</p>
+                                    <div data-hppotion="3" class="hpotions"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Heals around 70 ~ 85 HP</p>
+                                </div>
+                            </div>
+                            <button onclick="healI()" id="healUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Damage potion</p>
+                                    <div data-dmgpotion="2" class="dmgpotions"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Boosts your damage for your next attack</p>
+                                </div>
+                            </div>
+                            <button onclick="dmgI()" id="dmgUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Lucky charm</p>
+                                    <div data-luckycharm="2" class="luckycharms"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Removes ALL status effects</p>
+                                </div>
+                            </div>
+                            <button onclick="charmI()" id="charmUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>SP potion</p>
+                                    <div data-sppotion="2" class="sppotions"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                    <p>Grants 50 SP</p>
+                                </div>
+                            </div>
+                            <button onclick="sppotionUse()" id="spUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Anti-crit-shield</p>
+                                    <div data-cshield="1" class="critshields"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                    <p>Protects you from being critted for 2 turns</p>
+                                </div>
+                            </div>
+                            <button onclick="shieldUse()" id="critUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Very unstable concoction</p>
+                                    <div data-poisonp="3" class="concoctions"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                    <p>Inflicts poison on both players</p>
+                                </div>
+                            </div>
+                            <button onclick="poisonUse()" id="poisonUse">Use 1</button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="menu__active"></div>
+<!-- spellbook -->
+                <div class="spellsI">
+                    <h1 style="display: none;" id="spells">Spellbook</h1><br>
+                    <img alt="" src="img/xcross.png" alt="x.png" class="spellx">
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Healing spell</p>
+                                    <div data-manacosthp="45" class="spells__heal"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Heals a decent amount or damages you...</p>
+                                </div>
+                            </div>
+                            <button onclick="healSpell()" class="cast__heal">Cast</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Damage spell</p>
+                                    <div data-manacostdmg="60" class="spells__dmg"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Damages opponent a decent amount or damages you...</p>
+                                </div>
+                            </div>
+                            <button onclick="dmgSpell()" class="cast__dmg">Cast</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Overclock</p>
+                                    <div data-manacostglitch="150" class="spells__glitch"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Huge amount of burst damage, but at the cost of your health...</p>
+                                </div>
+                            </div>
+                            <button onclick="overclockSpell()" class="cast__glitch">Cast</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Item spell</p>
+                                    <div data-manacostitem="30" class="spells__item"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Grants you an item</p>
+                                </div>
+                            </div>
+                            <button onclick="itemSpell()" class="cast__item">Cast</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Mana spell</p>
+                                    <div data-manacostmana="40" class="spells__mana"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Grants you mana or takes all of it...</p>
+                                </div>
+                            </div>
+                            <button onclick="manaSpell()" class="cast__mana">Cast</button>
+                        </li>
+                    </ul>
+                    <!-- <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Hyper risk spell</p>
+                                    <div data-manacost(???)="100" class=""></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Damages opponent by a ton or steals your victory...</p>
+                                </div>
+                            </div>
+                            <button onclick="" class="cast">Cast</button>
+                        </li>
+                    </ul> -->
+                </div>
+                <div id="bookactive"></div>
+<!-- special moves -->
+                <div class="special__moves__impossible">
+                    <h1 style="display: none;" id="special__moves">Special moves</h1><br>
+                    <img alt="" src="img/xcross.png" alt="x.png" class="specialx">
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Crash buster</p>
+                                    <div data-crashcost="50" class="specials__crash"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Strong damage, no drawback, very small chance to crit</p>
+                                </div>
+                            </div>
+                            <button onclick="crashBusterI()" class="use__crash">Select</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Bloodshot</p>
+                                    <div data-bloodcost="40" class="specials__blood"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Decent damage, applies bleeding to opponent for 2 turns</p>
+                                </div>
+                            </div>
+                            <button onclick="bloodshotI()" class="use__blood">Select</button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="moves__active"></div>
+                <div class="spell__result"></div>
+                <div id="game-over"><h1 style="margin: auto;">GAME OVER</h1></div>
+                <div id="victory"><h1 style="margin: auto;">VICTORY</h1></div>
+<!-- right -->
+                <div class="right">
+                    <!-- easy -->
+                    <div class="flexbox__Right">
+                        <div class="dmg__Container__easy">                        
+                            <img alt="" src="img/effects/damage.png" alt="explosion.png">
+                            <div class="your__dmg__easy"></div>
+                        </div>
+                        <img alt="" src="img/sprites/Tac.gif" class="opp__sprite__easy">
+                        <div class="opp__hp" data-hp="30"></div>
+                    </div>
+                    <!-- hard -->
+                    <div class="flexbox__Right__hard">
+                        <div class="dmgContainerh">                        
+                            <img alt="" src="img/effects/damage.png" alt="explosion.png">
+                            <div class="ydmgH"></div>
+                        </div>
+                        <img alt="" src="img/sprites/Tac.gif" class="opp__sprite__hard">
+                        <div class="hpH" data-hph="125"></div>
+                    </div>
+                    <!-- impossible -->
+                    <div class="flexboxIRight">
+                        <div class="dmgContaineri">       
+                            <h1 style="color: #7b0000;" id="crit">Critical hit!! &nbsp;&nbsp;</h1>            
+                            <img alt="" src="img/effects/damage.png" alt="explosion.png">
+                            <div class="ydmgI"></div>
+                        </div>
+                        <img alt="" src="img/sprites/Tac.gif" class="opp__sprite__impossible">
+                        <div class="opp__stats">
+                            <div id="opp__flexbleed">
+                                <img alt="" src="img/effects/bleedingeff.gif" alt="bleeding.gif" class="opp__bleed">
+                                <div class="opp__bleedcont"></div>
+                            </div>
+                            <div id="opp__flexpoison">
+                                <img alt="" src="img/effects/Poisoneff.gif" alt="poison.gif" class="opp__poison">
+                                <div class="opp__poisoncont"></div>
+                            </div>
+                            <div class="opp__heal__amt"></div>
+                            <div class="hpI" data-hpi="3000"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="window.location.reload();" class="stopp btns">Reset</button>
+            <button class="patch__btn btns">Patch history</button>
+            <a class="wiki" href="wiki_pages/wiki.html"><button class="btns">Wiki</button></a>
+            <button onclick="battle()" class="battle btns">Battle</button>
+            <button onclick="attack()" class="rng btns">Attack</button>
+            <button onclick="attackH()" class="rngH btns">Attack</button>
+            <button onclick="attackI()" class="rngI btns">Attack</button>
+            <button onclick="attackIB()" class="boostedatk btns">Boosted Attack</button>
+            <button onclick="itemsI()" class="itemsI btns">Items</button>
+            <button onclick="spellbookI()" class="spellbookI btns">Spellbook</button>
+            <button onclick="specialmovesI()" class="specialmoves__impossible btns">Special moves</button>
+            <button onclick="oppAtk()" class="skip btns">Skip turn</button>
+        </div>
+    </div>    
+</body>
+</html>

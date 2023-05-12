@@ -1,0 +1,571 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+p {
+  color: #f1f1f1;
+}
+body {
+    background-color: #0b0b0b;
+    overflow: hidden;
+}
+/* borders, the "tv screen" */
+.outer-border {
+  border: 20px solid #121212;
+  height: 100vh;
+}
+.inner-border {
+  border: 40px solid #323232;
+  height: 100%;
+}
+.main__Container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-image: url(/1Mastery_Test_RPG_port_ver/img/stages/facility_stage.jpg);
+  height: 100%;
+  border: 20px solid black;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: right 0px bottom -25px;
+  background-size: cover;
+}
+.left {
+  height: 100%;
+}
+.right {
+  height: 100%;
+  width: 30%;
+}
+.inner-border .btns {
+  height: 40px;
+}
+.stopp {
+  border-color: red !important;
+  margin-right: 20px;
+}
+/* sprites for the eyes/battle pose */
+/* random number buttons */
+.rngI {
+  display: inline-block;
+}
+/* stats */
+.flexbox__Left__impossible {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.flexboxIRight {
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.healthContainerI, .manaContainerI, .special__points__container, .overlay__unit__container {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  justify-content: space-evenly;
+  background-color: rgb(66, 0, 173);
+  border-radius: 150px;
+}
+.dmg__Container__opp__impossible, .dmgContaineri  {
+  opacity: 0;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* impossible */
+.yhpI, .ydmgI, .yManaI, .ySPI{
+  font-family: 'VT323', monospace;
+}
+.yhpI.active, .ydmgI.active, .dmgI.active  {
+  animation: shake .5s forwards;
+}
+@keyframes shake {
+  0% {
+  transform: translateX(0);
+  }
+
+  20% {
+  transform: translateX(-10px);
+  }
+
+  40% {
+  transform: translateX(10px);
+  }
+
+  60% {
+  transform: translateX(-10px);
+  }
+
+  80% {
+  transform: translateX(10px);
+  }
+
+  100% {
+  transform: translateX(0);
+  }
+  }
+.overlay__icon1, .overlay__icon2 {
+  margin-left: 5px;
+  margin-right: 5px;
+  opacity: 1;
+}
+.hpI {
+  opacity: 0;
+  font-family: 'VT323', monospace;
+}
+.dmgI {
+  font-family: 'VT323', monospace;
+}
+/* special mechanics */
+#crit, .crit2 {
+  display: none;
+}
+.explosive__overdrive {
+  border-color: rgb(130, 130, 3) !important;
+  color: #e60000 !important;
+}
+.itemsI, .spellbookI, .specialmoves__impossible, .overlay__units__impossible, .boostedatk, .skip {
+  display: none;
+}
+.stopp {
+  border-color: red;
+  margin-right: 20px;
+}
+.overlay__units ul {
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  align-content:space-between;
+}
+/* result screen */
+#game-over, #victory {
+  display: none;
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  background-color: #686868;
+}
+.imp {
+  color: #db0000;
+}
+/* general */
+#phone__tilt {
+  display: none;
+}
+#flexbleed, #opp__flexbleed, #opp__flexbleed__heavy, #flexpoison, #opp__flexpoison {
+  display: none;
+}
+.stats, .opp__stats {
+  display: flex;
+  align-items: center;
+}
+.opp__stats {
+  height: 60px;
+  justify-content: space-between;
+}
+#hpbar {
+  height: 30px;
+  position: relative;
+  bottom: 15%;
+}
+.healeff {
+  color: #adff2f;
+  display: none;
+  position: absolute;
+}
+.bleedcont, .opp__bleedcont, .opp__bleedcont__heavy {
+  color: #e60000;
+}
+.poisoncont, .opp__poisoncont {
+  color: #00791a;
+}
+.dmgeff, .bleed__gif, .opp__bleed, .opp__bleed__heavy, .shockeff, .stuneff, .shieldeff, .opp__poison, .poisoneff{
+  display: none;
+}
+.itemx , .spellx, .specialx, .patch__cross, .overlayx{
+  display: none;
+}
+.x:hover {
+  cursor: pointer;
+}
+#menu__active, #bookactive, #moves__active, #overlay__active {
+  display: none;
+  right: 0;
+  z-index: 3;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.btns {
+  background-color: rgb(247, 247, 247);
+  border: 5px solid rgb(17, 1, 44);
+  color: #000;
+}
+.btns:hover {
+  background-color: #000000;
+  border: 5px solid rgb(47, 195, 74);
+  color: rgb(201, 194, 194);
+}
+ul, li {
+  width: 100%;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+}
+.spell__result {
+  display: none;
+  margin: auto;
+  font-family: monospace;
+  font-size: 10px;
+  color: #fff;
+}
+/* Dropdown explain */
+.dropbtn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+}
+.dropdown {
+  width: 70%;
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content p {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+.dropdown:hover .dropdown-content {display: flex;}
+.item__Menu__Impossible, .spellsI, .special__moves__impossible, .overlay__units {
+  display: none;
+  overflow-y: scroll;
+  border: 10px outset blueviolet;
+  position: absolute;
+  background-image: linear-gradient(to bottom right, rgba(25, 7, 88, 0.9), rgba(129, 108, 206, 0.9));
+  color: #fff;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  z-index: 4;
+  right: 10%;
+ }
+
+ body.active {
+  animation: shaking 0.5s forwards;
+ }
+ @keyframes shaking {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(-1deg); }
+    100% { transform: translate(1px, -1px) rotate(0deg); }
+ }
+
+/* media queries */
+@media screen and (min-height: 500px) {
+  #phone__tilt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: #fff;
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    overflow: hidden;
+  }
+  .outer-border {
+    display: none;
+  }
+}
+@media screen and (min-width: 625px){
+  .outer-border {
+    height: 330px;
+    display: block;
+  }
+  #phone__tilt {
+    display: none;
+  }
+  .eyes__Container {
+    margin-top: 50px;
+    background-size: 30%;
+  }
+  .healthContainerI, .manaContainerI, .special__points__container, .overlay__unit__container {
+    height: 30px;
+    width: 60px;
+    font-size: 16px;
+  }
+  .healthContainerI > img, .manaContainerI > img, .special__points__container > img, .overlay__unit__container > img{
+    height: 10px;
+    width: 10px;
+  }
+  #crit, .crit2 h1 {
+    font-size: 16px;
+  }
+  .dmg__Container__opp__impossible > img, .dmgContaineri > img  {
+    height: 15px;
+    width: 20px;
+  }
+  .itemx, .spellx, .specialx, .overlayx{
+    display: none;
+    width: 15px;
+    height: 15px;
+  }
+  .bleed__gif, .opp__bleed, .opp__bleed__heavy, .poisoneff, .opp__poison, .shockeff, .stuneff, .shieldeff {
+    height: 25px;
+    width: 25px;
+  }
+  .shieldeff {
+    height: 25px;
+  }
+  .bleedcont, .opp__bleedcont, .opp__bleedcont__heavy, .opp__poisoncont, .poisoncont {
+    font-size: 16px;
+  }
+  #game-over, #victory {
+    font-size: 10px;
+  }
+  .hpI, .dmgI, .ydmgI, .yhpI, .yManaI, .ySPI {
+    font-size: 16px;
+  }
+  #crit, .crit2 h1 {
+    font-size: 10px;
+  }
+  .item__Menu__Impossible h1, .spellsI h1, .special__moves__impossible h1, .overlay__units h1 {
+    font-size: 20px;
+  }
+  .item__Menu__Impossible, .spellsI, .special__moves__impossible, .overlay__units {
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+    font-size: 10px;
+    margin-right: 30px;
+   }
+   .exampleMenu {
+    width: 200px;
+    height: 50px;
+    font-size: 12px;
+  }
+  /* dropdown */
+  .dropdown-content {
+    padding: 2px;
+  }
+  .dropdown-content p {
+    font-size: 12px;
+    margin: 3px;
+  }
+  .dropbtn {
+    font-size: 12px;
+  }
+  #healUse, #dmgUse, #spUse, #charmUse, #critUse,#poisonUse{
+    font-size: 12px;
+  }
+  .cast, .cast__heal, .cast__dmg, .cast__glitch, .cast__item, .cast__mana {
+    font-size: 12px;
+  }
+  .sprite1 {
+    height: 70px;
+  }
+  .opp__sprite__impossible {
+    height: 80px;
+    margin-bottom: 50px;
+  }
+  .flexbox__Left__impossible {
+    align-items: center;
+  }
+  ul {
+    margin: 5px;
+  }
+  .dmgeff {
+    width: 40px;
+    height: 30px;
+  }
+  .stats {
+    width: 180px;
+  }
+  .healAmt, .healSpellAmt, .opp__heal__amt {
+    font-size: 16px;
+    color: #00ff1a;
+  }
+  .sacrificeAmt, .punishdmg {
+    font-size: 16px;
+    color: #db0000;
+  }
+  .manaAmt {
+    font-size: 16px;
+    color: rgb(88, 1, 220);
+  }
+  .spgain {
+    display: none;
+    font-size: 16px;
+    color: #ffa43d;
+  }
+  .healeff {  
+    height: 50px;
+    top: 40%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .outer-border {
+    height: 100vh;
+  }
+  .eyes__Container {
+    background-size: 55%;
+  }
+  .flexboxIRight{
+    margin-left: -40px;
+  }
+  .healthContainerI, .manaContainerI, .special__points__container, .overlay__unit__container {
+    height: 50px;
+    width: 150px;
+  }
+  .healthContainerI > img, .manaContainerI > img, .special__points__container > img, .overlay__unit__container > img{
+    height: 30px;
+    width: 30px;
+  }
+  .dmg__Container__opp__impossible > img, .dmgContaineri > img {
+    height: 35px;
+    width: 46px;
+  }
+  .yhpI, .yManaI, .ySPI, .ydmgI, .hpI, .dmgI, #crit, .crit2 h1{
+    font-size: 30px;
+  }
+  .main__Container > .gamemode > h1 {
+    font-size: 50px;
+  }
+  .item__Menu__Impossible > h1, .spellsI > h1, .special__moves__impossible > h1, .overlay__units > h1 {
+    font-size: 40px;
+  }
+  .item__Menu__Impossible, .spellsI, .special__moves__impossible, .overlay__units {
+    width: 650px;
+    height: 400px;
+    padding: 35px;
+  }
+  .bleedcont, .opp__bleedcont, .opp__bleedcont__heavy, .opp__poisoncont, .poisoncont {
+    font-size: 30px;
+  }
+  .spells h1 {
+    font-size: 40px;
+  }
+  .gamemode button {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .spellx, .itemx, .specialx, .overlayx{
+    width: 30px;
+    height: 30px;
+  }  
+  .exampleMenu {
+    width: 300px;
+    height: 100px;
+    font-size: 20px;
+  }
+  /* dropdown */
+  .dropdown-content {
+    padding: 5px;
+  }
+  .dropdown-content p {
+    font-size: 20px;
+    margin: 5px;
+  }
+  .dropbtn {
+    font-size: 30px;
+    height: 30px;
+  }
+  #healUse, #dmgUse, #spUse, #charmUse, #critUse, #poisonUse{
+    font-size: 20px;
+  }
+  .cast, .cast__heal, .cast__dmg, .cast__glitch, .cast__item, .cast__mana {
+    font-size: 20px;
+  }
+  .sprite1 {
+    height: 250px;
+  }
+  .opp__sprite__easy, .opp__sprite__hard {
+    margin-bottom: 90px;
+  }
+  .opp__sprite__easy, .opp__sprite__hard, .opp__sprite__impossible {
+    width: 300px;
+    height: 300px;
+  }
+  ul {
+    margin: 15px;
+  }
+  .dmgeff {
+    height: 50px;
+    width: 70px;
+  }
+  .bleed__gif, .opp__bleed, .opp__bleed__heavy, .poisoneff, .opp__poison, .shockeff, .stuneff, .shieldeff {
+    height: 50px;
+    width: 50px;
+  }
+  .stats {
+    width: 350px;
+  }
+  .healAmt, .healSpellAmt, .opp__heal__amt {
+    font-size: 30px;
+    color: #00ff1a;
+  }
+  .sacrificeAmt, .punishdmg {
+    font-size: 30px;
+    color: #db0000;
+  }
+  .healeff {
+    bottom: 220px;
+    height: 160px;
+  }
+  .manaAmt {
+    font-size: 30px;
+    color: rgb(88, 1, 220);
+  }
+  .spgain {
+    font-size: 30px;
+    color: #ffa43d;
+  }
+  .spell__result {
+    font-size: 20px;
+    width: 200px;
+  }
+  .patch__notes {
+    height: 70vh;
+    width: 80vw;
+  }
+  .c > h1{
+    font-size: 30px;
+  }
+  .p p {
+    font-size: 20px;
+  }
+}

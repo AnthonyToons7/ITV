@@ -1,0 +1,778 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+p {
+  color: #f1f1f1;
+}
+body {
+    background-color: #0b0b0b;
+    overflow: hidden;
+}
+/* accordion */
+.patch__notes {
+  overflow-y: scroll;
+  display: none;
+  margin-left: 2vw;
+  position: absolute;
+  width: 60vw;
+  height: 40vh;
+  border: 10px inset rgb(225, 0, 0);
+  border: 10px outset rgb(57, 0, 137);
+  background-image: linear-gradient(to top left, #8c0000e6, #000000e6,  #8c0000e6);
+}
+.patch__cross {
+  width: 100%;
+  font-size: 20px;
+  background-color: rgb(227, 227, 227);
+}
+.patch__cross:hover {
+  cursor: pointer;
+  background-color: #9d9d9d;
+}
+div.c{
+  position: relative;
+}
+.c > input{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity:0;
+  visibility: 0;
+}
+.c > h1{
+  border: 10px outset rgb(57, 0, 137);
+  background-image: linear-gradient(to bottom right, rgba(25, 7, 88, 0.9), rgba(129, 108, 206, 0.9));
+  padding:1em;
+  color: white;
+  position: relative;
+  font-size: 16px;
+}
+.c > label::before{
+  content:"";
+  display: inline-block;
+  border: 15px solid transparent;
+  border-left:20px solid white;
+}
+.c > label{
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.c > div.p{
+  max-height:0px;
+  overflow: hidden;
+  transition:max-height 0.5s;
+  border: 5px inset rgb(157, 0, 225);
+  background-image: linear-gradient(to bottom right, rgba(31, 0, 153, 0.9), rgba(16, 4, 56, 0.9));
+  box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.c > div.p p {
+  padding:2em;
+}
+.c > div.p > p > a {
+  color: rgb(0, 255, 68);
+}
+.c > input:checked ~ h1 label::before{
+  border-left:15px solid transparent;
+  border-top:20px solid white;
+  margin-top:12px;
+  margin-right:10px;
+}
+.c > input:checked ~ h1 ~ div.p{
+  max-height: 100%;
+}
+.p p {
+  font-size: 10px;
+}
+/* borders, the "tv screen" */
+.outer-border {
+  border: 20px solid #121212;
+  height: 100vh;
+}
+.inner-border {
+  border: 40px solid #323232;
+  height: 100%;
+}
+.main__Container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #000000; */
+  /* background: linear-gradient(90deg, rgb(31, 95, 214) 0%, rgb(214, 31, 156) 100%); */
+  height: 100%;
+  border: 20px solid black;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+    background: linear-gradient(270deg, #1f5fd6, #d61f9c, #1f5fd6);
+    background-size: 1200% 1200%;
+    animation: battlebg 10s ease infinite;
+}
+@keyframes battlebg {
+    0%{background-position:20% 100%}
+    30%{background-position:80% 30%}
+    70%{background-position:20% 100%}
+    100%{background-position:80% 40%}
+}
+.left {
+  display: none;
+  height: 100%;
+  width: 20%;
+  color: #f1f1f1;
+}
+.right {
+  display: none;
+  height: 100%;
+  width: 30%;
+  color: #f1f1f1;
+}
+.inner-border .btns {
+  height: 40px;
+}
+.stopp {
+  border-color: red !important;
+  margin-right: 20px;
+}
+/* sprites for the eyes/battle pose */
+.eyes__Container {
+  width: 100%;
+  height: 60%;
+  background-image: url(/1Mastery_Test_RPG_port_ver/img/sprites/blink.gif);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.eyes__Container.confuse {
+  cursor: pointer;
+  background-image: url(/1Mastery_Test_RPG_port_ver/img/sprites/confuse.png);
+}
+.sprite1, .opp__sprite__easy, .opp__sprite__hard, .opp__sprite__impossible {
+  display: none;
+}
+/* random number buttons */
+.rng, .rngH, .rngI {
+  display: none;
+}
+/* stats */
+.flexbox__Left, .flexbox__Left__hard, .flexbox__Left__impossible {
+  display: none;
+  flex-wrap: wrap;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.flexbox__Right, .flexbox__Right__hard, .flexboxIRight {
+  display: none;
+  flex-wrap: wrap;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.your__health__Container, .your__health__Container__hard, .healthContainerI, .manaContainerI, .special__points__container {
+  display: none;
+  padding: 10px;
+  margin: 10px;
+  color: rgb(0, 0, 0);
+  justify-content: space-evenly;
+  background-color: rgb(0, 166, 0);
+  border-radius: 150px;
+}
+.dmg__Container, .your__dmg__Container__hard, .dmg__Container__opp__impossible, .dmg__Container__easy, .dmgContainerh, .dmgContaineri  {
+  opacity: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* easy */
+.your__hp, .your__dmg__easy {
+  font-family: 'VT323', monospace;
+}
+.your__hp.active, .your__dmg__easy.active, .opp__dmg.active {
+  animation: shake .5s forwards;
+}
+@keyframes shake {
+  0% {
+  transform: translateX(0);
+  }
+
+  20% {
+  transform: translateX(-5px);
+  }
+
+  40% {
+  transform: translateX(5px);
+  }
+
+  60% {
+  transform: translateX(-5px);
+  }
+
+  80% {
+  transform: translateX(5px);
+  }
+
+  100% {
+  transform: translateX(0);
+  }
+  }
+.opp__hp {
+  display: none;
+  font-family: 'VT323', monospace;
+}
+.opp__dmg {
+  font-family: 'VT323', monospace;
+}
+/* hard */
+.your__hp__hard, .ydmgH{
+  font-family: 'VT323', monospace;
+}
+.your__hp__hard.active, .ydmgH.active, .dmgH.active {
+  animation: shake .5s forwards;
+}
+@keyframes shake {
+  0% {
+  transform: translateX(0);
+  }
+
+  20% {
+  transform: translateX(-10px);
+  }
+
+  40% {
+  transform: translateX(10px);
+  }
+
+  60% {
+  transform: translateX(-10px);
+  }
+
+  80% {
+  transform: translateX(10px);
+  }
+
+  100% {
+  transform: translateX(0);
+  }
+  }
+.hpH {
+  display: none;
+  font-family: 'VT323', monospace;
+}
+.dmgH {
+  font-family: 'VT323', monospace;
+}
+/* impossible */
+.yhpI, .ydmgI, .yManaI, .ySPI{
+  font-family: 'VT323', monospace;
+}
+.yhpI.active, .ydmgI.active, .dmgI.active  {
+  animation: shake .5s forwards;
+}
+@keyframes shake {
+  0% {
+  transform: translateX(0);
+  }
+
+  20% {
+  transform: translateX(-10px);
+  }
+
+  40% {
+  transform: translateX(10px);
+  }
+
+  60% {
+  transform: translateX(-10px);
+  }
+
+  80% {
+  transform: translateX(10px);
+  }
+
+  100% {
+  transform: translateX(0);
+  }
+  }
+.hpI {
+  opacity: 0;
+  font-family: 'VT323', monospace;
+}
+.dmgI {
+  font-family: 'VT323', monospace;
+}
+/* special mechanics */
+#crit, .crit2 {
+  display: none;
+}
+.itemsI, .spellbookI, .specialmoves__impossible, .boostedatk, .skip {
+  display: none;
+}
+/* result screen */
+#game-over, #victory {
+  display: none;
+  font-size: 40px;
+  color: white;
+}
+/* gamemodes */
+.gamemode {
+  display: none;
+  position: relative;
+  left: 30%;
+}
+.stopp {
+  border-color: red;
+  margin-right: 20px;
+}
+.gamemode button {
+  background-color: Transparent;
+  border: none;
+}
+.gamemode button:hover {
+  cursor: pointer;
+}
+.easy {
+  color: #adff2f;
+}
+.hard {
+  color: #ff4a4a;
+}
+.imp {
+  color: #db0000;
+}
+/* general */
+#phone__tilt {
+  display: none;
+}
+#flexbleed, #opp__flexbleed, #flexpoison, #opp__flexpoison {
+  display: none;
+}
+.main__Container > .gamemode > h1 {
+  color: #f1f1f1;
+}
+.stats, .opp__stats {
+  display: flex;
+  align-items: center;
+}
+.opp__stats {
+  justify-content: space-between;
+}
+#hpbar {
+  height: 30px;
+  position: relative;
+  bottom: 15%;
+}
+.healeff {
+  color: #adff2f;
+  display: none;
+  position: absolute;
+}
+.bleedcont, .opp__bleedcont {
+  color: #e60000;
+}
+.poisoncont, .opp__poisoncont {
+  color: #00791a;
+}
+.dmgeff, .bleed__gif, .opp__bleed, .opp__poison, .shockeff, .stuneff, .shieldeff, .poisoneff{
+  display: none;
+}
+.itemx , .spellx, .specialx, .patch__cross{
+  display: none;
+}
+.x:hover {
+  cursor: pointer;
+}
+#menu__active, #bookactive, #moves__active {
+  display: none;
+  right: 0;
+  z-index: 3;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.btns {
+  background-color: rgb(247, 247, 247);
+  border: 5px solid rgb(17, 1, 44);
+  color: #000;
+}
+.btns:hover {
+  background-color: #000000;
+  border: 5px solid rgb(47, 195, 74);
+  color: rgb(201, 194, 194);
+}
+ul, li {
+  width: 100%;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+}
+.exampleMenu{
+  display: none;
+  border: 1px solid black;
+  background-color: rgba(78, 78, 78, 0.9);
+  color: #fff;
+}
+.exampleMenu ul {
+  margin-bottom: -10px;
+}
+.spell__result {
+  display: none;
+  margin: auto;
+  color: rgb(162, 244, 255);
+  font-family: monospace;
+  font-size: 10px;
+}
+/* Dropdown explain */
+.dropbtn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+}
+.dropdown {
+  width: 70%;
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content p {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+.dropdown:hover .dropdown-content {display: flex;}
+.item__Menu__Impossible, .spellsI, .special__moves__impossible {
+  display: none;
+  overflow-y: scroll;
+  border: 10px outset blueviolet;
+  position: absolute;
+  background-image: linear-gradient(to bottom right, rgba(25, 7, 88, 0.9), rgba(129, 108, 206, 0.9));
+  color: #fff;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  z-index: 4;
+  right: 10%;
+ }
+
+ body.active {
+  animation: shaking 0.5s forwards;
+ }
+ @keyframes shaking {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(-1deg); }
+    100% { transform: translate(1px, -1px) rotate(0deg); }
+ }
+
+/* media queries */
+@media screen and (min-height: 500px) {
+  #phone__tilt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: #fff;
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    overflow: hidden;
+  }
+  .outer-border {
+    display: none;
+  }
+}
+@media screen and (min-width: 625px){
+  .outer-border {
+    height: 330px;
+    display: block;
+  }
+  #phone__tilt {
+    display: none;
+  }
+  .eyes__Container {
+    margin-top: 50px;
+    background-size: 30%;
+  }
+  .eyes__Container.confuse {
+    background-size: 65%;
+  }  
+  .your__health__Container, .your__health__Container__hard, .healthContainerI, .manaContainerI, .special__points__container {
+    height: 30px;
+    width: 60px;
+    font-size: 16px;
+  }
+  .your__health__Container > img, .your__health__Container__hard > img, .healthContainerI > img, .manaContainerI > img, .special__points__container > img{
+    height: 10px;
+    width: 10px;
+  }
+  #crit, .crit2 h1 {
+    font-size: 16px;
+  }
+  .dmg__Container > img, .your__dmg__Container__hard > img, .dmg__Container__opp__impossible > img, 
+  .dmg__Container__easy > img, .dmgContainerh > img, .dmgContaineri > img  {
+    height: 15px;
+    width: 20px;
+  }
+  .itemx, .spellx, .specialx{
+    display: none;
+    width: 15px;
+    height: 15px;
+  }
+  .bleed__gif, .opp__bleed, .opp__poison, .shockeff, .stuneff, .shieldeff, .poisoneff {
+    height: 25px;
+    width: 25px;
+  }
+  .shieldeff {
+    height: 25px;
+  }
+  .bleedcont, .opp__bleedcont, .poisoncont, .opp__poisoncont{
+    font-size: 16px;
+  }
+  #game-over, #victory {
+    font-size: 10px;
+  }
+  .opp__hp, .hpH, .hpI, .opp__dmg, .dmgH, .dmgI, .your__dmg__easy, .ydmgH, .ydmgI, .your__hp, .your__hp__hard, .yhpI, .yManaI, .ySPI {
+    font-size: 16px;
+  }
+  #crit, .crit2 h1 {
+    font-size: 10px;
+  }
+  .item__Menu__Impossible h1, .spellsI h1, .special__moves__impossible h1 {
+    font-size: 20px;
+  }
+  .item__Menu__Impossible, .spellsI, .special__moves__impossible {
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+    font-size: 10px;
+    margin-right: 30px;
+   }
+   .exampleMenu {
+    width: 200px;
+    height: 50px;
+    font-size: 12px;
+  }
+  /* dropdown */
+  .dropdown-content {
+    padding: 2px;
+  }
+  
+  .dropdown-content p {
+    font-size: 12px;
+    margin: 3px;
+  }
+  .dropbtn {
+    font-size: 12px;
+  }
+  #healUse, #dmgUse, #spUse, #charmUse, #critUse, #poisonUse{
+    font-size: 12px;
+  }
+  .cast, .cast__heal, .cast__dmg, .cast__glitch, .cast__item, .cast__mana {
+    font-size: 12px;
+  }
+  .gamemode button {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .sprite1 {
+    height: 70px;
+  }
+  .opp__sprite__easy, .opp__sprite__hard, .opp__sprite__impossible {
+    height: 80px;
+    margin-bottom: 40px;
+  }
+  .flexbox__Left, .flexbox__Left__hard, .flexbox__Left__impossible {
+    align-items: center;
+  }
+  ul {
+    margin: 5px;
+  }
+  .dmgeff {
+    width: 40px;
+    height: 30px;
+  }
+  .stats {
+    width: 180px;
+  }
+  .healAmt, .healSpellAmt, .opp__heal__amt {
+    font-size: 16px;
+    color: #00ff1a;
+  }
+  .sacrificeAmt, .punishdmg {
+    font-size: 16px;
+    color: #db0000;
+  }
+  .manaAmt {
+    font-size: 16px;
+    color: rgb(88, 1, 220);
+  }
+  .spgain {
+    display: none;
+    font-size: 16px;
+    color: #ffa43d;
+  }
+  .healeff {  
+    height: 50px;
+    top: 40%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .outer-border {
+    height: 100vh;
+  }
+  .eyes__Container {
+    background-size: 55%;
+  }
+  .flexboxIRight{
+    margin-left: -40px;
+  }
+  .your__health__Container, .your__health__Container__hard, .healthContainerI, .manaContainerI, .special__points__container {
+    height: 50px;
+    width: 150px;
+  }
+  .your__health__Container > img, .your__health__Container__hard > img, .healthContainerI > img, .manaContainerI > img, .special__points__container > img{
+    height: 30px;
+    width: 30px;
+  }
+  .dmg__Container > img, .your__dmg__Container__hard > img, .dmg__Container__opp__impossible > img, 
+  .dmg__Container__easy > img, .dmgContainerh > img, .dmgContaineri > img {
+    height: 35px;
+    width: 46px;
+  }
+  .your__hp, .your__hp__hard, .yhpI, .yManaI, .ySPI, .your__dmg__easy, .ydmgH, .ydmgI, .opp__hp, .hpH, .hpI, .opp__dmg, .dmgH, .dmgI, #crit, .crit2 h1{
+    font-size: 30px;
+  }
+  .main__Container > .gamemode > h1 {
+    font-size: 50px;
+  }
+  .item__Menu__Impossible > h1, .spellsI > h1, .special__moves__impossible > h1 {
+    font-size: 40px;
+  }
+  .item__Menu__Impossible, .spellsI, .special__moves__impossible {
+    width: 650px;
+    height: 400px;
+    padding: 35px;
+  }
+  .bleedcont, .opp__bleedcont, .poisoncont, .opp__poisoncont {
+    font-size: 30px;
+  }
+  .spells h1 {
+    font-size: 40px;
+  }
+  .gamemode button {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .spellx, .itemx, .specialx{
+    width: 30px;
+    height: 30px;
+  }  
+  .exampleMenu {
+    width: 300px;
+    height: 100px;
+    font-size: 20px;
+  }
+  /* dropdown */
+  .dropdown-content {
+    padding: 5px;
+  }
+  .dropdown-content p {
+    font-size: 20px;
+    margin: 5px;
+  }
+  .dropbtn {
+    font-size: 30px;
+    height: 30px;
+  }
+  #healUse, #dmgUse, #spUse, #charmUse, #critUse, #poisonUse{
+    font-size: 20px;
+  }
+  .cast, .cast__heal, .cast__dmg, .cast__glitch, .cast__item, .cast__mana {
+    font-size: 20px;
+  }
+  .sprite1 {
+    height: 250px;
+  }
+  .opp__sprite__easy, .opp__sprite__hard {
+    margin-bottom: 90px;
+  }
+  .opp__sprite__easy, .opp__sprite__hard, .opp__sprite__impossible {
+    width: 300px;
+    height: 300px;
+  }
+  ul {
+    margin: 15px;
+  }
+  .dmgeff {
+    height: 50px;
+    width: 70px;
+  }
+  .bleed__gif, .opp__bleed, .opp__poison, .opp__poison, .shockeff, .stuneff, .shieldeff, .poisoneff {
+    height: 50px;
+    width: 50px;
+  }
+  .stats {
+    width: 350px;
+  }
+  .healAmt, .healSpellAmt, .opp__heal__amt {
+    font-size: 30px;
+    color: #00ff1a;
+  }
+  .sacrificeAmt, .punishdmg {
+    font-size: 30px;
+    color: #db0000;
+  }
+  .healeff {
+    bottom: 220px;
+    height: 160px;
+  }
+  .manaAmt {
+    font-size: 30px;
+    color: rgb(88, 1, 220);
+  }
+  .spgain {
+    font-size: 30px;
+    color: #ffa43d;
+  }
+  .spell__result {
+    font-size: 20px;
+    width: 200px;
+  }
+  .patch__notes {
+    height: 70vh;
+    width: 80vw;
+  }
+  .c > h1{
+    font-size: 30px;
+  }
+  .p p {
+    font-size: 20px;
+  }
+}

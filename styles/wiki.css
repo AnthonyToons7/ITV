@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(/1Mastery_Test_RPG_port_ver/img/story_panels/heaven_stage.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section {
+    display: flex;
+    justify-content: center;
+}
+.mid {
+    display: flex;
+    width: 90vw;
+    margin-top: 30px;
+}
+.main {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+    background-color: rgb(49, 1, 107);
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    border: #5c8dff 10px solid;
+}
+.sidebar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid #5c8dff;
+}
+.img__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.img__container > img {
+    height: 200px;
+}
+.description {
+    background-color: aliceblue;
+    color: #000;
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info__container {
+    color: aliceblue;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-top: 1px solid #5c8dff;
+    padding: 5px;
+}
+.info__container > h3 {
+    margin-left: 20px;
+    flex-basis: 150px;
+    font-weight: 1000;
+}
+.info__container > h3, .info__container > div {
+    font-size: 20px;
+}
+.flex__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-top: 1px solid #5c8dff;
+    border-bottom:1px solid #5c8dff;
+}
+.character__types {
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 10px;
+}
+.character__type__btn, .character__type__cbtn, .character__type__obtn{
+    padding: 10px;
+    color: aliceblue;
+    font-size: 16px;
+}
+.text__container > h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    border-bottom: #5c8dff 1px solid;
+    padding-bottom: 10px;
+}
+.text__container > h1 {
+    margin-bottom: 20px;
+}
+.text__container > p, .text__container > h2, .text__container > h1 {
+    color: aliceblue;
+}
+
+.void__sprite, .cvoid__sprite, .ovoid__sprite {
+    display: none;
+}
+.character__type__btn.active, .character__type__cbtn.active, .character__type__obtn.active {
+    color: #00ffff;
+    border-bottom: 4px solid #00ffff;
+}
+.void__sprite.active, .cvoid__sprite.active, .ovoid__sprite.active {
+    display: block;
+}
+
+.see_also {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.see_also > a {
+    color: #00ffff;
+    cursor: pointer;
+}
+.icons {
+    width: 70px;
+}
+h1, h2, p {
+    color: aliceblue;
+}
+.items > .info__container > div, .spells > .info__container> div, .special__moves > .info__container> div, .overlay__units > .info__container > div {
+    font-size: 16px;
+}
+.items, .spells, .special__moves, .overlay__units {
+    margin-bottom: 30px;
+}
+.items > .last__container, .spells > .last__container, .special__moves > .last__container, .overlay__units > .last__container {
+    margin-bottom: 40px;
+}
+.items > h1, .spells > h1, .special__moves > h1, .overlay__units > h1 {
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+.spells > .first__container{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.description h1 {
+    color: #000;
+}
+.see_also > a {
+    margin: 10px;
+}
+@media screen and (min-width: 1024px) {
+    .main {
+        flex-direction: row;
+    }
+    .sidebar {
+        margin: 10px;
+    }
+    .stat__container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .spells {
+        margin: 20px;
+    }
+    .items {
+        margin: 20px;
+    }
+    .special__moves {
+        margin: 20px;
+    }
+    .overlay__units {
+        margin: 20px;
+    }
+    .character__type__btn, .character__type__cbtn, .character__type__obtn{
+        font-size: 20px;
+    }
+}

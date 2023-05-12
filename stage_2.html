@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility</title>
+    <link rel="stylesheet" href="styles/stage_2.css">
+</head>
+<body>
+    <div id="phone__tilt"><h1>TILT PHONE!!!</h1></div>
+    <p style="color: #fff; position: fixed;">ver. 1.4.5 updating...</p>
+    <div class="outer-border">
+        <div class="inner-border">
+            <div class="main__Container">
+                <div class="left">
+                    <!-- impossible -->
+                    <div class="flexbox__Left__impossible">                        
+                        <audio controls class="critsfx" style="display: none;">
+                            <source src="img/sprites/critical_hit_sfx.mp3" type="audio/mpeg">
+                        </audio> 
+                        <div class="dmg__Container__opp__impossible">
+                            <div class="crit2"><h1 style="color: #7b0000;">Critical hit!! &nbsp;&nbsp;</h1></div>
+                                <img alt="" src="img/effects/damage.png" alt="explosion.png">
+                            <div style="display: flex; flex-wrap:wrap; flex-direction: column;">
+                                <div class="dmgI"></div>
+                            </div>
+                        </div>
+                        <img alt="" src="img/effects/heal.gif" class="healeff">
+                        <img alt="" src="img/sprites/Void.gif" class="sprite1 yspriteImp">
+                        <div class="stats">
+                            <div class="healthContainerI">
+                                <img alt="" src="img/health.png" alt="health.png">
+                                <div class="yhpI" data-yhpi="3200"></div>
+                            </div>
+                            <div class="healAmt"></div>
+                            <div class="healSpellAmt"></div>
+                            <div class="sacrificeAmt"></div>
+                            <div class="punishdmg"></div>
+                            <div class="manaContainerI">
+                                <img alt="" src="img/Mana.png" alt="mana.png">
+                                <div class="yManaI" data-ymanai="50"></div>
+                            </div>
+                            <div class="manaAmt"></div>
+                            <div class="special__points__container">
+                                <img alt="" src="img/Specialpoints.png" alt="sp.png">
+                                <div class="ySPI" data-yspi="120"></div>
+                            </div>
+                            <div class="spgain"></div>
+                            <div class="overlay__unit__container">
+                                <img src="img/overlay_unit.png" alt="" class="overlay__icon1">
+                                <img src="img/overlay_unit.png" alt="" class="overlay__icon2">
+                            </div>
+                            <img alt="" src="img/effects/atkboost.gif" class="dmgeff">
+                            <img alt="" src="img/effects/Shield.gif" class="shieldeff">
+                            <img alt="" src="img/effects/shockeff.gif" class="shockeff">
+                            <img alt="" src="img/effects/stuneff.gif" class="stuneff">
+                            <div id="flexbleed">
+                                <img alt="" src="img/effects/bleedingeff.gif" alt="bleeding.gif" class="bleed__gif">
+                                <div class="bleedcont"></div>
+                            </div>
+                            <div id="flexpoison">
+                                <img alt="" src="img/effects/Poisoneff.gif" class="poisoneff">
+                                <div class="poisoncont"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!-- item menu -->
+                <div class="item__Menu__Impossible">
+                    <h1 style="display: none;" id="inven">Inventory</h1><br>
+                    <img alt="" src="img/xcross.png" alt="x.png" class="itemx">
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Health potion</p>
+                                    <div data-hppotion="2" class="hpotions"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Heals around 70 ~ 85 HP</p>
+                                </div>
+                            </div>
+                            <button onclick="healI()" id="healUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Damage potion</p>
+                                    <div data-dmgpotion="3" class="dmgpotions"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Boosts your damage for your next attack</p>
+                                </div>
+                            </div>
+                            <button onclick="dmgI()" id="dmgUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Lucky charm</p>
+                                    <div data-luckycharm="2" class="luckycharms"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Removes ALL status effects</p>
+                                </div>
+                            </div>
+                            <button onclick="charmI()" id="charmUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>SP potion</p>
+                                    <div data-sppotion="2" class="sppotions"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                    <p>Grants 50 SP</p>
+                                </div>
+                            </div>
+                            <button onclick="sppotionUse()" id="spUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Anti-crit-shield</p>
+                                    <div data-cshield="1" class="critshields"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                    <p>Protects you from being critted for 2 turns</p>
+                                </div>
+                            </div>
+                            <button onclick="shieldUse()" id="critUse">Use 1</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p>Very unstable concoction</p>
+                                    <div data-poisonp="3" class="concoctions"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                    <p>Inflicts poison on both players</p>
+                                </div>
+                            </div>
+                            <button onclick="poisonUse()" id="poisonUse">Use 1</button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="menu__active"></div>
+<!-- spellbook -->
+                <div class="spellsI">
+                    <h1 style="display: none;" id="spells">Spellbook</h1><br>
+                    <img alt="" src="img/xcross.png" alt="x.png" class="spellx">
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Healing spell</p>
+                                    <div data-manacosthp="55" class="spells__heal"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Heals a decent amount or damages you...</p>
+                                </div>
+                            </div>
+                            <button onclick="healSpell()" class="cast__heal">Cast</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Damage spell</p>
+                                    <div data-manacostdmg="60" class="spells__dmg"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Damages opponent a decent amount or damages you...</p>
+                                </div>
+                            </div>
+                            <button onclick="dmgSpell()" class="cast__dmg">Cast</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Overclock</p>
+                                    <div data-manacostglitch="160" class="spells__glitch"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Huge amount of burst damage, but at the cost of your health...</p>
+                                </div>
+                            </div>
+                            <button onclick="overclockSpell()" class="cast__glitch">Cast</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Item spell</p>
+                                    <div data-manacostitem="45" class="spells__item"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Grants you an item</p>
+                                </div>
+                            </div>
+                            <button onclick="itemSpell()" class="cast__item">Cast</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Mana spell</p>
+                                    <div data-manacostmana="40" class="spells__mana"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Grants you mana or takes all of it...</p>
+                                </div>
+                            </div>
+                            <button onclick="manaSpell()" class="cast__mana">Cast</button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="bookactive"></div>
+<!-- special moves -->
+                <div class="special__moves__impossible">
+                    <h1 style="display: none;" id="special__moves">Special moves</h1><br>
+                    <img alt="" src="img/xcross.png" alt="x.png" class="specialx">
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Crash buster</p>
+                                    <div data-crashcost="50" class="specials__crash"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Strong damage, no drawback, very small chance to crit</p>
+                                </div>
+                            </div>
+                            <button onclick="crashBusterI()" class="use__crash">Select</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Bloodshot</p>
+                                    <div data-bloodcost="40" class="specials__blood"></div>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Decent damage, applies bleeding to opponent for 2 turns</p>
+                                </div>
+                            </div>
+                            <button onclick="bloodshotI()" class="use__blood">Select</button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="moves__active"></div>
+<!-- overlay units -->
+                <div class="overlay__units">
+                    <h1 style="display: none;" id="overlay__unit">Overlay menu</h1><br>
+                    <img alt="" src="img/xcross.png" alt="x.png" class="overlayx">
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Treason discharge</p>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Cut opponents attack in half, and you gain that lost attack, but only for one turn</p>
+                                </div>
+                            </div>
+                            <button onclick="treason_discharge()" class="use__discharge">Select</button>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Hyper regenerate type &alpha;</p>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Regenerate 1000 HP</p>
+                                </div>
+                            </div>
+                            <button onclick="regen_alpha()" class="use__alpha">Select</button>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Hyper regenerate type &beta;</p>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Regenerate 200 Mana</p>
+                                </div>
+                            </div>
+                            <button onclick="regen_beta()" class="use__beta">Select</button>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Hyper regenerate type &gamma;</p>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Regenerate 250 SP</p>
+                                </div>
+                            </div>
+                            <button onclick="regen_gamma()" class="use__gamma">Select</button>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Deadly sacrifice</p>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Deals 1500 damage to both players</p>
+                                </div>
+                            </div>
+                            <button onclick="deadly_sac()" class="use__sacrifice">Select</button>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <div class="dropbtn">
+                                    <p class="hlfont">Bleed &#937;</p>
+                                </div>
+                                <div class="dropdown-content">
+                                <p>Inflicts heavy bleed on opponent for 6 turns</p>
+                                </div>
+                            </div>
+                            <button onclick="bleed_omega()" class="use__bleed__omega">Select</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="overlay__active"></div>
+                <div class="spell__result"></div>
+                <div id="game-over"><h1 style="margin: auto;">GAME OVER</h1></div>
+                <div id="victory"><h1 style="margin: auto;">VICTORY</h1></div>
+<!-- right -->
+                <div class="right">
+                    <!-- impossible -->
+                    <div class="flexboxIRight">
+                        <div class="dmgContaineri">       
+                            <h1 style="color: #7b0000;" id="crit">Critical hit!! &nbsp;&nbsp;</h1>            
+                            <img alt="" src="img/effects/damage.png" alt="explosion.png">
+                            <div class="ydmgI"></div>
+                        </div>
+                        <img alt="" src="img/sprites/Raysprite.gif" class="opp__sprite__impossible">
+                        <div class="opp__stats">
+                            <div id="opp__flexbleed">
+                                <img alt="" src="img/effects/bleedingeff.gif" alt="bleeding.gif" class="opp__bleed">
+                                <div class="opp__bleedcont"></div>
+                            </div>
+                            <div id="opp__flexbleed__heavy">
+                                <img alt="" src="img/effects/bleedingeff.gif" alt="bleeding.gif" class="opp__bleed__heavy">
+                                <div class="opp__bleedcont__heavy"></div>
+                            </div>
+                            <div id="opp__flexpoison">
+                                <img alt="" src="img/effects/Poisoneff.gif" alt="poison.gif" class="opp__poison">
+                                <div class="opp__poisoncont"></div>
+                            </div>
+                            <div class="opp__heal__amt"></div>
+                            <div class="hpI" data-hpi="4367"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="window.location.reload();" class="stopp btns">Reset</button>
+            <button onclick="attackI()" class="rngI btns">Attack</button>
+            <button onclick="attackIB()" class="boostedatk btns">Boosted Attack</button>
+            <button onclick="itemsI()" class="itemsI btns">Items</button>
+            <button onclick="spellbookI()" class="spellbookI btns">Spellbook</button>
+            <button onclick="specialmovesI()" class="specialmoves__impossible btns">Special moves</button>
+            <button onclick="overlaymenu()" class="overlay__units__impossible btns">Overlay units</button>
+            <button onclick="oppAtk()" class="skip btns">Skip turn</button>
+        </div>
+    </div>  
+    <div class="patch__cross" style="display: none;"></div>  
+    <div class="patch__btn" style="display: none;"></div>  
+    <script src="assets/stage_2.js"></script>
+    <script src="assets/general_2.js"></script>
+</body>
+</html>
