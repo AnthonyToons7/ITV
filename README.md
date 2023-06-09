@@ -1,2 +1,2 @@
-# mt_rpg
+# Into the Void
 My old JS RPG game
